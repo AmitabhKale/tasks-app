@@ -1,0 +1,14 @@
+inputSet:
+  name: demo-input
+  identifier: demoinput
+  orgIdentifier: default
+  projectIdentifier: Taskapp
+  pipeline:
+    identifier: taskreactdemo
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: main
