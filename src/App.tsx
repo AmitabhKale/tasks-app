@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <Header title="Task Tracker" />
+      <Header title="Task Tracker App" />
       <div className="container py-3">
         <div className="row gx-3 gy-3">
           <div className="col-12 col-md-6">
