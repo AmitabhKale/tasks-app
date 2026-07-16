@@ -1,0 +1,25 @@
+service:
+  name: dev-gke-deploy
+  identifier: devgkedeploy
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      manifests:
+        - manifest:
+            identifier: kubernetesmaifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: Amitabh
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/
+                  repoName: tasks-app
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: Taskapp
