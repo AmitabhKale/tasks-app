@@ -4,12 +4,6 @@ pipeline:
   projectIdentifier: Taskapp
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: Amitabh
-        repoName: tasks-app
-        build: <+input>
   stages:
     - stage:
         name: Build
@@ -26,7 +20,7 @@ pipeline:
           infrastructure:
             type: KubernetesDirect
             spec:
-              connectorRef: GKEClusternew
+              connectorRef: GKEtaskconnector
               namespace: harness-delegate-ng
               automountServiceAccountToken: true
               nodeSelector: {}
@@ -35,11 +29,16 @@ pipeline:
             steps:
               - step:
                   type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
+                  name: BuildAndPushDockerRegistry
+                  identifier: BuildAndPushDockerRegistry
                   spec:
                     connectorRef: dockeramitabhregistry
-                    repo: amitabh02/task-tracker
+                    repo: task-tracker
                     tags:
                       - latest
-                    caching: true
+  properties:
+    ci:
+      codebase:
+        connectorRef: Amitabh
+        repoName: tasks-app
+        build: <+input>
