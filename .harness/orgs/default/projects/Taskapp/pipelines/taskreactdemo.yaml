@@ -33,7 +33,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry
                   spec:
                     connectorRef: dockeramitabhregistry
-                    repo: task-tracker
+                    repo: amitabh02/task-tracker
                     tags:
                       - latest
   properties:
