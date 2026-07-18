@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: gke-new-infra
+  identifier: gkenewinfra
+  orgIdentifier: default
+  projectIdentifier: Taskapp
+  environmentRef: gkeenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: GKEtaskconnector
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
